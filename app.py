@@ -1,3 +1,5 @@
+
+import webbrowser
 import csv
 from flask import Flask, render_template,request,redirect,url_for
 import diseaseprediction
@@ -50,5 +52,9 @@ def drugs():
     medicine = request.form['medicine']
     return render_template('homepage.html',medicine=medicine,symptoms=symptoms)
 
+def open_browser():
+    webbrowser.open_new('http://127.0.0.1:5000/')
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    open_browser()
+    app.run(port=5000)
